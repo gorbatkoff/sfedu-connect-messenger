@@ -16,14 +16,14 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     use: [
       isDev ? "style-loader" : MiniCssExtractPlugin.loader,
       {
-        loader: 'css-loader',
+        loader: "css-loader",
         options: {
           modules: {
             localIdentName: "[path][name]__[local]--[hash:base64:5]",
           },
         },
       },
-      'sass-loader'
+      "sass-loader"
     ]
   };
 
