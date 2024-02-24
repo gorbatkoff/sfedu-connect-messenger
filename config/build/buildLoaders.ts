@@ -8,7 +8,13 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const typeScriptLoader = {
     test: /\.tsx?$/,
     use: "ts-loader",
-    exclude: /node_modules/,
+    exclude: /node_modules/
+  };
+
+  const svgrLoader = {
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
+    use: ["@svgr/webpack"]
   };
 
   const sassLoader = {
@@ -19,17 +25,12 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
         loader: "css-loader",
         options: {
           modules: {
-            localIdentName: "[path][name]__[local]--[hash:base64:5]",
-          },
-        },
+            localIdentName: "[path][name]__[local]--[hash:base64:5]"
+          }
+        }
       },
       "sass-loader"
     ]
-  };
-
-  const svgrLoader = {
-    test: /\.svg$/,
-    use: ["@svgr/webpack"],
   };
 
   return [typeScriptLoader, sassLoader, svgrLoader];

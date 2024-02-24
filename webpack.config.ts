@@ -1,4 +1,5 @@
 import path from "path";
+
 import { BuildEnv, BuildPaths, buildWebpackConfig } from "./config/build";
 
 export default (env: BuildEnv) => {
@@ -6,6 +7,7 @@ export default (env: BuildEnv) => {
     entryPath: path.join(__dirname, "src", "index.tsx"),
     publicPath: path.join(__dirname, "public", "index.html"),
     outputPath: path.resolve(__dirname, "dist"),
+    srcPath: path.resolve(__dirname, "src"),
   };
 
   const mode = env.mode || "development";

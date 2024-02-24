@@ -14,15 +14,18 @@ export const buildWebpackConfig = (options: BuildOptions): ConfigOptions => {
     output: {
       clean: true,
       filename: "main.js",
-      path: paths.outputPath,
+      path: paths.outputPath
     },
     devServer: buildDevServer(options),
     plugins: buildPlugins(options),
     module: {
-      rules: buildLoaders(options),
+      rules: buildLoaders(options)
     },
     resolve: {
       extensions: [".tsx", ".ts", ".js"],
-    },
+      alias: {
+        "@": options.paths.srcPath
+      }
+    }
   };
 };
