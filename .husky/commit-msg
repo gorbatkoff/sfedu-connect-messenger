@@ -3,12 +3,9 @@
 # npx --no -- commitlint --edit --color --format --config commitlint.config.ts
 
 message="$(cat $1)"
-requiredPattern="^(add|perf|fix|bump|make|start|stop|refactor|reformat|optimise|document|merge) .*$"
+requiredPattern="^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test):.*$"
 if ! [[ $message =~ $requiredPattern ]];
 then
-  echo "-"
-  echo "-"
-  echo "-"
   echo "🚨 Wrong commit message! 😕"
   echo "The commit message must have this format:"
   echo "<verb in imperative mood> <what was done>"
