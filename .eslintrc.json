@@ -13,11 +13,38 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks"
+  ],
   "rules": {
-    "indent": ["error", 2],
-    "quotes": ["error", "double"],
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": "off",
+    "quotes": [
+      "off",
+      "double"
+    ],
+    "semi": [
+      "off",
+      "never"
+    ],
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": "warn"
+    "@typescript-eslint/no-var-requires": "off",
+    "react-hooks/rules-of-hooks": "error",
+    // Проверяем правила хуков
+    "react-hooks/exhaustive-deps": "error",
+    "eqeqeq": "error",
+    // Только строгое сравнение
+    "no-empty": "error",
+    // Пустые блоки
+    "yoda": "error",
+    // https://eslint.org/docs/latest/rules/yoda
+    // Проверяем зависимости эффекта
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "react/no-unescaped-entities": "off"
   }
 }

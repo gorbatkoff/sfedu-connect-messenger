@@ -3,11 +3,11 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export const buildPlugins = ({ paths, isDev }: BuildOptions) => {
+export const buildPlugins = ({ paths }: BuildOptions) => {
   const plugins = [
     new HtmlWebpackPlugin({ template: paths.publicPath }),
     new MiniCssExtractPlugin({
-      filename: "[name]-[contenthash].css",
+      filename: "[name]-[contenthash].css"
     }),
     new ReactRefreshWebpackPlugin()
   ].filter(Boolean);
