@@ -1,3 +1,19 @@
 .button {
-  background: red;
+  padding: 4px 12px;
+  border-radius: var(--border-radius);
+  transition: 0.33s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.primary {
+  background: #38a405;
+  color: white;
+}
+
+.secondary {
+  background: #dc1248;
+  color: white;
 }

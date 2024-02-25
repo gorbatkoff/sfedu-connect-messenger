@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 
 import { counterActions } from "@/features/Counter";
 
+import { Button } from "@/shared/ui/Button/Button";
+
 export const Counter = () => {
   const dispatch = useDispatch();
 
@@ -9,5 +11,9 @@ export const Counter = () => {
     dispatch(counterActions.increment());
   };
 
-  return <button onClick={handleClick}>Increase</button>;
+  return (
+    <Button onClick={handleClick} variant="secondary">
+      Increase
+    </Button>
+  );
 };
