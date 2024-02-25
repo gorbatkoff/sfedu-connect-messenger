@@ -1,1 +1,6 @@
 @import "./reset";
+@import "./variables/global";
+
+.App {
+  background: var(--primary-color);
+}

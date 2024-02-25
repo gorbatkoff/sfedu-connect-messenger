@@ -28,14 +28,17 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   };
 
   const sassLoader = {
-    test: /\.(c|sa|sc)ss$/,
+    test: /\.s[ac]ss$/i,
     use: [
       isDev ? "style-loader" : MiniCssExtractPlugin.loader,
       {
         loader: "css-loader",
         options: {
           modules: {
-            localIdentName: "[path][name]__[local]--[hash:base64:5]"
+            auto: (resPath: string) => Boolean(resPath.includes(".module.")),
+            localIdentName: isDev
+              ? "[path][name]__[local]"
+              : "[hash:base64:8]"
           }
         }
       },
