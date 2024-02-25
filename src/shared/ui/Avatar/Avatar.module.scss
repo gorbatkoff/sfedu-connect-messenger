@@ -1,0 +1,38 @@
+.avatar {
+  border-radius: var(--border-radius);
+  position: relative;
+
+  .avatarImage {
+    border-radius: var(--border-radius);
+  }
+
+  .onlineIndicator {
+    padding: 3px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #41ff3d;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color)
+  }
+}
+
+.xs {
+  height: 20px;
+  width: 20px;
+}
+
+.sm {
+  height: 26px;
+  width: 26px;
+}
+
+.md {
+  height: 36px;
+  width: 36px;
+}
+
+.lg {
+  height: 102px;
+  width: 102px;
+}
