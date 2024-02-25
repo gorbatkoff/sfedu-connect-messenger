@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from "react";
 
+import styles from "./Button.module.scss";
+
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
 }
@@ -7,5 +9,9 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: FC<IButtonProps> = (props) => {
   const { children } = props;
 
-  return <button {...props}>{children}</button>;
+  return (
+    <button {...props} className={styles.button}>
+      {children}
+    </button>
+  );
 };
