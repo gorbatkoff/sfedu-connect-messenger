@@ -50,6 +50,7 @@
     // https://eslint.org/docs/latest/rules/yoda
     // Проверяем зависимости эффекта
     "@typescript-eslint/ban-ts-comment": "warn",
-    "react/no-unescaped-entities": "off"
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-explicit-any": "error"
   }
 }

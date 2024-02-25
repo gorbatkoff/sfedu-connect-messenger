@@ -7,12 +7,12 @@
   "importOrder": [
     "^react$",
     "<THIRD_PARTY_MODULES>",
-    "^@app/(.*)$",
-    "^@pages/(.*)$",
-    "^@widgets/(.*)$",
-    "^@features/(.*)$",
-    "^@entities/(.*)$",
-    "^@shared/(.*)$",
+    "^@/app/(.*)$",
+    "^@/pages/(.*)$",
+    "^@/widgets/(.*)$",
+    "^@/features/(.*)$",
+    "^@/entities/(.*)$",
+    "^@/shared/(.*)$",
     "^[./]",
     "^./_app.scss$"
   ],
