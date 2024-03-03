@@ -11,3 +11,5 @@ interface ISidebarProps {
 export const Sidebar: FC<ISidebarProps> = memo(({ className }) => {
   return <aside className={classNames(styles.sidebar, [className])}></aside>;
 });
+
+Sidebar.displayName = "Sidebar";

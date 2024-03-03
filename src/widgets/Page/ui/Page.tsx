@@ -14,3 +14,5 @@ export const Page: FC<IPageProps> = memo(({ children, className }) => {
     <main className={classNames(styles.page, [className])}>{children}</main>
   );
 });
+
+Page.displayName = "Page";

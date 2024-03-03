@@ -5,3 +5,5 @@ import styles from "./Header.module.scss";
 export const Header = memo(() => {
   return <header className={styles.header} />;
 });
+
+Header.displayName = "Header";
