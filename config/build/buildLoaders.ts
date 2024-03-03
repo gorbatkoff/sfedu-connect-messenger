@@ -11,6 +11,11 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     exclude: /node_modules/
   };
 
+  const jsonLoader = {
+    test: /\.json$/,
+    loader: 'json-loader'
+  }
+
   const svgrLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
@@ -46,5 +51,5 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     ]
   };
 
-  return [typeScriptLoader, sassLoader, svgrLoader, gifLoader, resourceLoader];
+  return [typeScriptLoader, sassLoader, jsonLoader, svgrLoader, gifLoader, resourceLoader];
 };

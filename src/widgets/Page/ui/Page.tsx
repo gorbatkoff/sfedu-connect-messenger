@@ -1,11 +1,16 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, memo } from "react";
+
+import classNames from "classnames";
 
 import styles from "./Page.module.scss";
 
-interface IPage {
+interface IPageProps {
   children: ReactNode;
+  className?: string;
 }
 
-export const Page: FC<IPage> = ({ children }) => {
-  return <main className={styles.page}>{children}</main>;
-};
+export const Page: FC<IPageProps> = memo(({ children, className }) => {
+  return (
+    <main className={classNames(styles.page, [className])}>{children}</main>
+  );
+});

@@ -1,3 +1,13 @@
 .appLayout {
-  display: flex
+  display: flex;
+
+  .sidebarWrapper {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .sidebarRightWrapper {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
 }

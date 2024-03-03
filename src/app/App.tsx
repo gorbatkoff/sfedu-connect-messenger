@@ -1,19 +1,13 @@
-import { useSelector } from "react-redux";
+import { RouterProvider } from "react-router-dom";
 
-import { AppLayout } from "@/app/layout/AppLayout";
-import { StateSchema } from "@/app/providers/StoreProvider";
-
-import { Counter } from "@/features/Counter";
+import { router } from "@/app/router/AppRouter";
 
 import "./styles/index.scss";
 
-export const App = () => {
-  const count = useSelector((state: StateSchema) => state.counter.value);
+/*interface IAppProps {
+  children: ReactNode;
+}*/
 
-  return (
-    <AppLayout>
-      <h1>{count}</h1>
-      <Counter />
-    </AppLayout>
-  );
+export const App = () => {
+  return <RouterProvider router={router} />;
 };

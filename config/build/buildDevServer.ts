@@ -3,15 +3,16 @@ import { BuildOptions } from "./types/config";
 
 export const buildDevServer = ({
   paths,
-  port,
+  port
 }: BuildOptions): Configuration => {
   return {
     open: true,
     hot: true,
     static: {
-      directory: paths.publicPath,
+      directory: paths.publicPath
     },
+    historyApiFallback: true,
     compress: true,
-    port: port,
+    port: port
   };
 };

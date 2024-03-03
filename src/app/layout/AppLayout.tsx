@@ -3,6 +3,7 @@ import { FC, ReactNode } from "react";
 import { Header } from "@/widgets/Header";
 import { Page } from "@/widgets/Page/ui/Page";
 import { Sidebar } from "@/widgets/Sidebar";
+import { SidebarRight } from "@/widgets/SidebarRight";
 
 import styles from "./AppLayout.module.scss";
 
@@ -15,8 +16,9 @@ export const AppLayout: FC<IAppLayout> = ({ children }) => {
     <>
       <Header />
       <div className={styles.appLayout}>
-        <Sidebar />
-        <Page>{children}</Page>
+        <Sidebar className={styles.sidebarWrapper} />
+        <Page className={styles.pageWrapper}>{children}</Page>
+        <SidebarRight className={styles.sidebarRightWrapper} isShow={false} />
       </div>
     </>
   );
