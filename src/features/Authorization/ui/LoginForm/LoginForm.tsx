@@ -1,10 +1,10 @@
 import { FC } from "react";
 
 import classNames from "classnames";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 import { userLoginService } from "@/features/Authorization";
+
+import { useAppDispatch } from "@/shared/hooks/useAppDispatch/useAppDispatch";
 
 import styles from "./LoginForm.module.scss";
 
@@ -13,11 +13,9 @@ interface ILoginFormProps {
 }
 
 export const LoginForm: FC<ILoginFormProps> = ({ className }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const handleLogin = async (e: any) => {
-    e.preventDefault();
-    //@ts-ignore
+  const handleLogin = async () => {
     await dispatch(userLoginService({ username: "admin", password: "123" }));
   };
 
