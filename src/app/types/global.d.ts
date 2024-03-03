@@ -3,4 +3,6 @@ declare module "*.scss" {
   export default content;
 }
 
-declare module "*.json"
+declare module "*.json";
+
+declare const __API_URL__: string;

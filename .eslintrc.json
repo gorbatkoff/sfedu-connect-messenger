@@ -72,10 +72,7 @@
     "no-var": "error",
     "no-console": "warn",
     "no-alert": "off",
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "linebreak-style": "off",
     "prefer-template": "error",
     "no-duplicate-imports": "error",
     "no-implicit-coercion": [

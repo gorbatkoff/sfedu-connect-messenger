@@ -9,5 +9,7 @@ import "./styles/index.scss";
 }*/
 
 export const App = () => {
+  console.log(__API_URL__);
+
   return <RouterProvider router={router} />;
 };
