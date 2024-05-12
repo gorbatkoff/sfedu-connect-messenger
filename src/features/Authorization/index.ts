@@ -1,2 +1,2 @@
-export { LoginForm } from "./ui/LoginForm/LoginForm";
+export { LoginForm } from "./ui/LoginForm";
 export * from "./model/services/authorization";

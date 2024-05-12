@@ -1,7 +1,11 @@
 @import "./reset";
 @import "./variables/global";
 
+* {
+  font-family: "Open Sans";
+}
+
 body {
-  font-family: "Roboto", sans-serif;
   min-height: 100vh;
+  color: white;
 }

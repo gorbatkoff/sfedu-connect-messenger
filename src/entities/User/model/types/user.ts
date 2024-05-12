@@ -1,9 +1,13 @@
 export interface User {
-  id: string | number;
+  _id: string;
   email: string;
   username: string;
   age: number;
   password: string;
+  avatar?: string;
+  name?: string;
+  surname?: string;
+  token?: string;
 }
 
 export interface UserSchema {

@@ -1,0 +1,22 @@
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: 0.3s;
+  margin: 8px 0;
+  background: transparent;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  .channelLogo {
+    cursor: pointer;
+    color: var(--inverted-primary-color);
+  }
+
+  .channelName {
+    color: var(--inverted-primary-color);
+    font-width: 400;
+  }
+}

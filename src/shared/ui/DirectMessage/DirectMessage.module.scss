@@ -1,0 +1,16 @@
+.directMessage {
+  background: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  color: white;
+  margin: 1em 0;
+
+  .name {
+    width: 80%;
+    text-align: left;
+    margin-left: 0.5em;
+    font-size: 18px;
+  }
+}

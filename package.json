@@ -16,8 +16,7 @@
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "prepare": "husky"
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -72,8 +71,10 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.6",
     "@reduxjs/toolkit": "^2.2.1",
-    "axios": "^1.6.7",
+    "antd": "^5.16.5",
+    "axios": "^1.6.8",
     "classnames": "^2.5.1",
     "concurrently": "^8.2.2",
     "react": "^18.2.0",

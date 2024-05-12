@@ -15,6 +15,10 @@ export const userSlice = createSlice({
       state.authData = action.payload;
       state._mounted = true;
     },
+    removeAuthData: (state: UserSchema) => {
+      state.authData = undefined;
+      state._mounted = false;
+    },
   },
 });
 
