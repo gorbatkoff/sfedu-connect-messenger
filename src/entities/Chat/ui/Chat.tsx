@@ -1,7 +1,4 @@
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import { StateSchema } from "@/app/providers/StoreProvider";
 
 import { chatActions } from "@/entities/Chat/model/slice/chatSlice";
 import { IChat } from "@/entities/Chat/model/types/chat";
@@ -13,22 +10,21 @@ import { DirectMessage } from "@/shared/ui/DirectMessage/DirectMessage";
 
 interface IChatProps {
   chat: IChat;
+  userData: User;
+  isCurrent?: boolean;
+  className?: string;
 }
 
 export const Chat = (props: IChatProps) => {
-  const { chat } = props;
+  const { chat, userData, isCurrent, className } = props;
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const { authData } = useSelector((state: StateSchema) => state.user);
-
-  const { recipientUser } = useFetchRecipientUser(chat, authData);
+  const { recipientUser } = useFetchRecipientUser(chat, userData);
 
   const handleSetChat = () => {
     dispatch(chatActions.setChat(chat));
-    navigate(`/chat/${chat._id}`, {
-      state: recipientUser as User,
-    });
+    navigate(`/chat/${recipientUser._id}`);
   };
 
   return (
@@ -36,6 +32,7 @@ export const Chat = (props: IChatProps) => {
       handleClick={handleSetChat}
       name={recipientUser?.name}
       surname={recipientUser?.surname}
+      className={isCurrent ? className : undefined}
     />
   );
 };

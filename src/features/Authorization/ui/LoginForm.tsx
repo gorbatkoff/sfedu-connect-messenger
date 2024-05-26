@@ -3,7 +3,9 @@ import { FC } from "react";
 import { Button, Checkbox, Form, FormProps, Input } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import { useGetPublicKeyQuery } from "@/shared/api/getPublicKey/getPublicKey";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch/useAppDispatch";
+import { encryptData } from "@/shared/lib/encryptData/encryptData";
 
 import { userAuthorization } from "../model/services/authorization";
 import { AuthorizationProps } from "../model/types/authorization";
@@ -17,14 +19,26 @@ export const LoginForm: FC<ILoginFormProps> = ({ className }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
+  const { data: publicKey } = useGetPublicKeyQuery();
+
   const onFinish: FormProps<AuthorizationProps>["onFinish"] = async (
     values
   ) => {
     const { email, password } = values;
-
+    if (!publicKey) return;
     if (!email || !password) return;
-    //@ts-ignore
-    const request = await dispatch(userAuthorization({ email, password }));
+
+    const encryptedEmail = await encryptData(email, publicKey.publicKey);
+    const encryptedPassword = await encryptData(password, publicKey.publicKey);
+
+    if (!encryptedPassword || !encryptedEmail) return;
+
+    const request = await dispatch<any>(
+      userAuthorization({
+        email: encryptedEmail,
+        password: encryptedPassword,
+      })
+    );
 
     if (request.payload === "Error") return;
 

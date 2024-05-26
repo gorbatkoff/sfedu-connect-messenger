@@ -25,8 +25,6 @@ export const NavigateName = (props: INavigateNameProps) => {
   } = props;
   const navigate = useNavigate();
 
-  console.log(isCurrentUser);
-
   const mods = {
     [styles["isCurrentUser"]]: isCurrentUser,
   };

@@ -7,28 +7,37 @@ import { StateSchema } from "@/app/providers/StoreProvider";
 import { fetchChats } from "@/entities/Chat/model/services/fetchChats";
 import { Chat } from "@/entities/Chat/ui/Chat";
 
-import { USER_DATA_KEY } from "@/shared/const/localStorage";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch/useAppDispatch";
 
-const user = JSON.parse(localStorage.getItem(USER_DATA_KEY) || "{}");
+import styles from "./Chats.module.scss";
 
 export const Chats = () => {
   const dispatch = useAppDispatch();
 
+  const { authData } = useSelector((state: StateSchema) => state.user);
   const { chats } = useSelector((state: StateSchema) => state.chats);
-
-  console.log(chats);
+  const selectedChat = useSelector((state: StateSchema) => state.chat);
 
   useEffect(() => {
-    dispatch(fetchChats({ userId: user._id }));
-  }, [dispatch]);
+    if (!authData?._id) return;
+    dispatch<any>(fetchChats({ userId: authData._id }));
+  }, [authData?._id, dispatch]);
 
   if (!chats.length) return null;
+  if (!authData) return <div>User not loaded...</div>;
 
   return (
     <section>
-      {chats.map((chat, index) => {
-        return <Chat key={index} chat={chat} />;
+      {chats.map((chat) => {
+        return (
+          <Chat
+            key={chat._id}
+            chat={chat}
+            userData={authData}
+            isCurrent={chat._id === selectedChat.chat?._id}
+            className={styles.currentChat}
+          />
+        );
       })}
     </section>
   );

@@ -1,0 +1,21 @@
+.createChat {
+  display: flex;
+  justify-content: space-between;
+  background-color: inherit;
+  align-items: center;
+  margin: 1em 0;
+  color: white;
+
+  .createIcon {
+    background-color: white;
+    color: black;
+  }
+
+  .createChatLabel {
+    margin-left: 1em;
+  }
+}
+
+.listItem:hover {
+  background-color: #dbf1ff;
+}

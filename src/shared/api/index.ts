@@ -8,8 +8,11 @@ export const apiInstance = axios.create({
 
 apiInstance.interceptors.request.use((config) => {
   if (config.headers) {
-    console.log("called");
     config.headers.Authorization = localStorage.getItem(USER_TOKEN_KEY) || "";
+  }
+
+  if (config.method === "post") {
+    config.headers["Content-Type"] = "application/json";
   }
 
   return config;

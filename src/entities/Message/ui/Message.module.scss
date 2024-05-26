@@ -1,0 +1,17 @@
+.message {
+  background-color: var(--inverted-primary-color);
+  max-width: 300px;
+  margin-top: 1em;
+  width: fit-content;
+  padding: 6px 1rem 6px 1rem;
+  border-radius: 1rem 2rem 2rem 0;
+  font-weight: 500;
+}
+
+.userMessage {
+  background-color: var(--secondary-color);
+  color: white;
+  margin-left: auto;
+  padding: 6px 1rem 6px 1rem;
+  border-radius: 2rem 1rem 0 2rem;
+}

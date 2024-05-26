@@ -1,0 +1,16 @@
+.chatParent {
+  display: flex;
+  padding-top: 2em;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+
+  .filePicker {
+    width: 30px;
+  }
+
+  .chatInput {
+    width: 500px;
+    margin: 0 1em;
+  }
+}

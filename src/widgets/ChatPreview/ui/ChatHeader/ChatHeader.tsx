@@ -15,12 +15,10 @@ interface IChatHeaderProps {
 }
 
 // eslint-disable-next-line react/display-name
-export const ChatHeader = memo(({ className, recipient }: IChatHeaderProps) => {
+export const ChatHeader = ({ className, recipient }: IChatHeaderProps) => {
   const user = useSelector(getUserAuthData);
 
-  console.log(recipient);
-
-  console.log(user);
+  if (!recipient) return null;
 
   return (
     <div className={classNames(styles.chatHeader, {}, [className])}>
@@ -36,4 +34,4 @@ export const ChatHeader = memo(({ className, recipient }: IChatHeaderProps) => {
       </h2>
     </div>
   );
-});
+};
