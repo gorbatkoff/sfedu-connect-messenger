@@ -13,12 +13,11 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
 
   const jsonLoader = {
     test: /\.json$/,
-    loader: 'json-loader'
-  }
+    loader: "json-loader"
+  };
 
   const svgrLoader = {
-    test: /\.svg$/i,
-    issuer: /\.[jt]sx?$/,
+    test: /\.svg$/,
     use: ["@svgr/webpack"]
   };
 

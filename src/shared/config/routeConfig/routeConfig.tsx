@@ -6,6 +6,8 @@ import { ChatPreview } from "@/widgets/ChatPreview/ui/ChatPreview";
 
 import { RegisterForm } from "@/features/Registration";
 
+import { PickChat } from "@/shared/ui/PickChat/PickChat";
+
 export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
 };
@@ -35,7 +37,7 @@ export const RoutePath: Record<AppRoutes, string> = {
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
   [AppRoutes.Default]: {
     path: RoutePath.default,
-    element: <h1>Default</h1>,
+    element: <PickChat />,
     authOnly: true,
   },
   [AppRoutes.Channel]: {

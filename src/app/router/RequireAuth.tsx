@@ -1,9 +1,6 @@
 import { FC, ReactNode } from "react";
 
-import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-
-import { getUserAuthData } from "@/entities/User";
 
 import { USER_DATA_KEY } from "@/shared/const/localStorage";
 

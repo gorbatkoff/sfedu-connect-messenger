@@ -6,3 +6,8 @@ declare module "*.scss" {
 declare module "*.json";
 
 declare const __API_URL__: string;
+
+declare module "*.svg" {
+  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  export default content;
+}

@@ -17,7 +17,9 @@ import { messagesActions } from "@/entities/Messages/model/slice/messagesSlice";
 import { newMessageActions } from "@/entities/NewMessage";
 import { getUserAuthData } from "@/entities/User";
 
+import { useGetPublicKeyQuery } from "@/shared/api/getPublicKey/getPublicKey";
 import { useAppDispatch } from "@/shared/hooks/useAppDispatch/useAppDispatch";
+import { encryptData } from "@/shared/lib/encryptData/encryptData";
 
 import styles from "./ChatInput.module.scss";
 
@@ -35,6 +37,7 @@ export const ChatInput = (props: IChatInput) => {
   const dispatch = useAppDispatch();
 
   const [sendMessage] = useSendChatMessageMutation();
+  const { data: publicKey } = useGetPublicKeyQuery();
 
   const handleSetMessageText = (e: ChangeEvent<HTMLInputElement>) => {
     setMessageText(e.target.value);
@@ -57,11 +60,24 @@ export const ChatInput = (props: IChatInput) => {
       if (!messageText) return;
       if (!chatId) return;
       if (!userData?._id) return;
+      if (!publicKey?.publicKey) return;
+
+      const encryptedMessage = await encryptData(
+        messageText,
+        publicKey.publicKey
+      );
+      const encryptedChatId = await encryptData(chatId, publicKey.publicKey);
+      const encryptedSenderId = await encryptData(
+        userData?._id,
+        publicKey.publicKey
+      );
+
+      if (!encryptedMessage || !encryptedChatId || !encryptedSenderId) return;
 
       const response = await sendMessage({
-        chatId: chatId,
-        senderId: userData._id,
-        text: messageText,
+        chatId: encryptedChatId,
+        senderId: encryptedSenderId,
+        text: encryptedMessage,
       });
 
       //@ts-ignore

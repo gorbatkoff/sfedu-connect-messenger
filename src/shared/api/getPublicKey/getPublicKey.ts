@@ -9,6 +9,7 @@ const getPublicKey = rtkApi.injectEndpoints({
     getPublicKey: build.query<IPublicKey, void>({
       query: () => ({
         url: `/users/public-key`,
+        cache: "force-cache",
       }),
     }),
   }),

@@ -69,7 +69,6 @@ export const App = () => {
   }, [dispatch, socket, newMessage]);
 
   // recieve message
-
   useEffect(() => {
     if (!socket) return;
 

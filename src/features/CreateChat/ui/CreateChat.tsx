@@ -50,8 +50,6 @@ export const CreateChat = () => {
         setIsModalOpen(false);
 
         navigate(`/chat/${companionId}`);
-
-        alert("Чат успешно создан!");
       }
     } catch (error) {
       console.error(error);
@@ -74,6 +72,7 @@ export const CreateChat = () => {
         title="Создать чат"
         cancelText={undefined}
         open={isModalOpen}
+        onCancel={handleCancel}
         onOk={handleCancel}
         cancelButtonProps={{ style: { display: "none" } }}
       >

@@ -19,6 +19,8 @@ export const UserAvatar = (props: IUserAvatar) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
+  console.log("userData :>>", userData);
+
   const handleLogout = useCallback(() => {
     dispatch(userActions.removeAuthData());
     localStorage.clear();
@@ -53,6 +55,9 @@ export const UserAvatar = (props: IUserAvatar) => {
           size="large"
           icon={<UserOutlined />}
         />
+        <span style={{ marginLeft: "1em" }}>
+          {userData?.name} {userData?.surname}
+        </span>
       </a>
     </Dropdown>
   );
